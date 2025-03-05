@@ -41,7 +41,7 @@
     },
     "origin_organism": {
       "title": "origin_organism",
-      "description": "The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is derived could be bacterial, as well as plant, animal, or other sources. Organism names are usually written in italic and consisted out of two words; however can be also shortern to the inital letter of the organismn and the second word for bacteria e.g. E. coli, B. subitlis, Acinetobacter johnsonii ",
+      "description": "The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is derived could be bacterial, as well as plant, animal, or other sources. Organism names are usually written in italic and consisted out of two words; however can be also shortern to the inital letter of the organismn and the second word for bacteria e.g. E. coli, B. subtilis, Acinetobacter johnsonii ",
       "type": "string"
     },
     "supplier": {
