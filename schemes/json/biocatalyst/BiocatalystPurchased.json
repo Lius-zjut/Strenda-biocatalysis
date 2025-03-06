@@ -51,7 +51,7 @@
     },
     "production_organism": {
       "title": "production_organism",
-      "description": "Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression.Organism names are usually written in italic and consisted out of two words; however can be also shortern to the inital letter of the organismn and the second word for bacteria e.g. Escherichia coli or E. coli or yest e.g. Komagataella pastoris or K. pastoris,  ",
+      "description": "Information about the organism in which the biocatalyst was produced is crucial in the context of heterologous gene expression. Organism names are usually written in italic and consisted out of two words; however can be also shortern to the inital letter of the organismn and the second word for bacteria e.g. Escherichia coli or E. coli or yest e.g. Komagataella pastoris or K. pastoris,  ",
       "type": "string"
     },
     "posttranslational_modification": {
