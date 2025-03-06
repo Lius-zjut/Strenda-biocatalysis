@@ -36,7 +36,7 @@
     },
     "sequence_DNA": {
       "title": "sequence_DNA",
-      "description": "The DNA sequence of the biocatalyst including any tags and linkers. DNA sequence consisted out of Adenine A Thymine T Cytosine C and Guanine G Adenine A Tymine T Cytosine C and Guanine G e.g. ATGGAT",
+      "description": "The DNA sequence of the biocatalyst including any tags and linkers. DNA sequence consisted out of Adenine A Thymine T Cytosine C and Guanine G e.g. ATGGAT",
       "type": "string"
     },
     "origin_organism": {
