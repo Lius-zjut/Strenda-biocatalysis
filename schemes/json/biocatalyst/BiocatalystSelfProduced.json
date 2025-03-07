@@ -76,7 +76,7 @@
     },
     "purification_method": {
       "title": "purification_method",
-      "description": "The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, such as immobilized metal affinity chromatography (IMAC) or ion exchange chomatogrfie (IEX), precipitation, HPLC, ultrafiltration, dialysis, salt fractionation, etc.",
+      "description": "The choice of purification methods is diverse and can impact the enzyme, with possible methods including chromatographic techniques, such as immobilized metal affinity chromatography (IMAC) or ion-exchange chromatography (IEX), precipitation, HPLC, ultrafiltration, dialysis, salt fractionation, etc.",
       "type": "string"
     },
     "formulation": {
