@@ -5,7 +5,7 @@
   "properties": {
     "name": {
       "title": "name",
-      "description": "The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, somtime if also can be a number letter combination such as 'CHMO-M15',  or a abberviation, such as 'EaGK, KatG'",
+      "description": "The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, somtimes it also can be a number letter combination such as 'CHMO-M15',  or a abberviation, such as 'EaGK, KatG'",
       "type": "string"
     },
     "ec_number": {
