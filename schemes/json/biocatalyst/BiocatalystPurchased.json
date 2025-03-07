@@ -56,7 +56,7 @@
     },
     "posttranslational_modification": {
       "title": "posttranslational_modification",
-      "description": "Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation, methylation, ubiquitination and other modifications at a certin amino acid position e.g. ubiquitination at lysine residue 200 was detected.",
+      "description": "Information about any chemical modifications or alterations that occur to the biocatalyst's protein structure after translation, such as phosphorylation, glycosylation, acetylation, methylation, ubiquitination and other modifications at a certain amino acid position e.g. ubiquitination at lysine residue 200 was detected.",
       "type": "string"
     },
     "purity": {
