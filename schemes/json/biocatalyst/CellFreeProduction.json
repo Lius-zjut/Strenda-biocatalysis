@@ -5,7 +5,7 @@
   "properties": {
     "source_of_cellfree_extract": {
       "title": "source_of_cellfree_extract",
-      "description": "Specifiy the organism or cell type from which the cell-free extract is derived (e.g., by describing the genus and species). These could be bacterial, plant, animal, or another sources. If available, reference can be made to an appropriate database entry.",
+      "description": "Specifiy the organism or cell type from which the cell-free extract is derived (e.g., by describing the genus and species (Escherichia coli or E. coli)). These could be bacterial, plant, animal, or another sources. Furthermore is can the source of cell free extract can come from purified compounds called Cell-Free PURE System. If available, reference can be made to an appropriate database entry.",
       "type": "string"
     },
     "concentration": {
