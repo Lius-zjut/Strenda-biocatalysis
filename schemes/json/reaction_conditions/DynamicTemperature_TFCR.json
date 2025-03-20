@@ -5,19 +5,19 @@
   "properties": {
     "temperature_beginning": {
       "title": "temperature_beginning",
-      "description": "The initial temperature, prior to the start of the reaction, should be specified.",
+      "description": "The initial temperature, prior to the start of the reaction, should be specified, e.g. In the beginning of the reaction the teperature was set to 37 °C., or The starting temperature was 40°C.",
       "type": "number",
       "minimum": 0.0
     },
     "temperature_after_event": {
       "title": "temperature_after_event",
-      "description": "The temperature that is present after a specific event has occurred.",
+      "description": "The temperature that is present after a specific event has occurred e.g. After three houres was the temperature reduced to 20 °C.",
       "type": "number",
       "minimum": 0.0
     },
     "event_description": {
       "title": "event_description",
-      "description": "Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific        value based on the current progress of the reaction process.",
+      "description": "Information regarding the event that caused the temperature change. In the case of a fed-batch reaction protocol, this event can also be the planned adjustment of the temperature to another specific value based on the current progress of the reaction process.",
       "type": "string"
     },
     "temperature_at_XY": {
