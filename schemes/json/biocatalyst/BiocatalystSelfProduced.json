@@ -81,7 +81,7 @@
     },
     "formulation": {
       "title": "formulation",
-      "description": "Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. An example for a solvent would be a buffer that can be composed out of different salts and is set to a pH, sometimes is also glycerol in the formulation e.g. 50 mM Tris-HCl, 200 mM NaCl, 10% glycerol, pH 8; 20 mM HEPES, 10 mM MgCl2, pH 7.2. Additional information regarding the application or formulation in the experiment should be entered in the next subcategory.",
+      "description": "Depending on the formulation, the biocatalyst can exist either in a dissolved state within a solvent or as a solid powder. It defines the physical state in which the biocatalyst is used. An example for a solvent would be a buffer that can be composed out of different salts and is set to a pH, sometimes is also glycerol in the formulation e.g. 50 mM Tris-HCl, 200 mM NaCl, 10% glycerol, pH 8; 20 mM HEPES, 10 mM MgCl2, pH 7.2. or indication for solid powder 'Then, freeze drying was performed using a freeze dryer ...' ",
       "type": "string"
     },
     "special_treatment": {
