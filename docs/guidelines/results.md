@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Results documentation
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
@@ -112,8 +117,8 @@ These metrics are vital for evaluating the success of a process, optimizing reac
 
 __c_yield__* `float`
 
-- Yield represents the amount of the desired product obtained from a reaction. It is the number of synthesized molecules of product per number of starting molecules. The following formula can be used:
-- `Minimum`: 0.0
+- Yield represents the amount of the desired product obtained from a reaction. It is the number of synthesized molecules of product per number of starting molecules. The following formula can be used: $$Y_p = \frac{n_p - n _ {p0}}{n _ {s0}} \cdot \frac{|v_s|}{|v_p|}$$ where, Yp  - yield of the product p  (-), np0  - amount of product p  at the start of the reaction (mol), np  - amount of product p  at the end of the reaction (mol), vs  - stoichiometric factor for the substrate s  (-), vp  - stoichiometric factor for the product p  (-). Note: The reported yield relies on analytical findings. Typically, the isolated yield is more common in practice as it reflects the precise quantity of product acquired post downstream processing (DSP).
+- `Minimum`: 0
 
 __yield_unit__* `string`
 
@@ -122,8 +127,8 @@ __yield_unit__* `string`
 
 __space_time_yield__* `float`
 
-- Space-time yield in biocatalysis refers to the mass of product obtained per unit volume of the reactor per unit time. Other terms commonly used in the literature are
-- `Minimum`: 0.0
+- Space-time yield in biocatalysis refers to the mass of product obtained per unit volume of the reactor per unit time. Other terms commonly used in the literature are volumetric productivity  or the reactor productivity . The following formula can be used: $$STY = \frac{m_p}{𝜏 \cdot V_R}$$ where, STY  - space-time yield (g L-1 h-1), mp  - mass of the synthesized product (g), 𝜏 - residence time r reaction time (h), VR  - reactor volume.
+- `Minimum`: 0
 
 __space_time_yield_unit__* `string`
 
@@ -132,7 +137,7 @@ __space_time_yield_unit__* `string`
 
 __conversion__* `float`
 
-- The term "conversion" refers to the percentage of substrate that undergoes transformation into the desired product during a reaction. It is the number of converted molecules per number of starting molecules. The following formula can be used:
+- The term "conversion" refers to the percentage of substrate that undergoes transformation into the desired product during a reaction. It is the number of converted molecules per number of starting molecules. The following formula can be used: $$X_s = \frac{n _ {s0} - n_s}{n _ {s0}}$$ where, Xs  - conversion of the substrate s  (-), ns0  - amount of substrate s  at the start of the reaction (mol), ns  - amount of substrate s  at the end of the reaction (mol).
 
 
 __conversion_unit__* `string`
@@ -153,7 +158,7 @@ __special_treatment__* `string`
 __specific_activity__* `float`
 
 - The specific activity refers to the amount of product formed or substrate consumed per unit of enzyme per unit of time.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __specific_activity_unit__* `string`
 
@@ -188,36 +193,36 @@ __stereoselectivity__* `string`
 __enantioselectivity__* `float`
 
 - Enantioselectivity, or enantiomeric ratio (E), defines the enzyme's capability to preferentially catalyze the transformation of one enantiomer over its mirror-image counterpart. This trait highlights the enzyme's ability to favor a specific enantiomer either as a product or as the preferred substrate for a reaction.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __enantiomeric_excess__* `float`
 
-- The enantiomeric excess (
-- `Minimum`: 0.0
+- The enantiomeric excess ( ee ) measures the degree of purity and efficiency in a chiral catalysis process, representing the excess of one enantiomer over the other in a reaction product. The following formula can be used: $$ee_R = \frac{n_R - n_S}{n_R + n_S}$$ where, eeR  - enantiomeric excess of the ( R )-enantiomer (-), nR  - amount of the ( R )-enatiomer (mol) and nS  - amount of the ( S )-enatiomer (mol).
+- `Minimum`: 0
 
 __enantiomeric_excess_unit__* `string`
 
-- The primary unit used for enantiomeric excess (
+- The primary unit used for enantiomeric excess ( ee ) is percent (%).
 
 
 __diastereomeric_excess__* `float`
 
-- The diasteriomeric excess (
-- `Minimum`: 0.0
+- The diasteriomeric excess ( de ) represents the difference in the concentration of one diastereomer over another in a reaction product. The following formula can be used: $$de_1 = \frac{n_1 - n_2}{n_1 + n_2}$$ where, de  - diasteriomeric excess of the major diasteriomer (-), n1  - amount of the major diasteriomer (mol) and n2  - amount of the minor diasteriomer (mol).
+- `Minimum`: 0
 
 __diasteriomeric_excess_unit__* `string`
 
-- The primary unit used for diasteriomeric excess (
+- The primary unit used for diasteriomeric excess ( ee ) is percent (%).
 
 
 __isomeric_content__* `float`
 
-- The isomeric content (
-- `Minimum`: 0.0
+- The isomeric content ( ic ) refers to the percentage distribution or ratio of different isomers within a mixture resulting from a reaction or process. It describes how various isomers are represented in a product or mixture. The following formula can be used: $$ic = I_1 / \sum _ {i=1}^n I_i$$ where, ic  - proportion of a specific isomer in a mixture of isomers (-), I1  - amount of the specific isomer (mol) and Ii  - quantity of all isomers (mol).
+- `Minimum`: 0
 
 __isomeric_content_unit__* `string`
 
-- The primary unit used for isomeric content (
+- The primary unit used for isomeric content ( ic ) is percent (%).
 
 
 __chemoselectivity__* `string`
@@ -242,12 +247,12 @@ Understanding the energy dynamics and spontaneity of reactions through thermodyn
 
 __gibbs_free_energy_change__* `string`
 
-- The Gibbs free energy (
+- The Gibbs free energy ( G ) represents the portion of energy capable of performing work in a reaction under constant temperature and pressure, providing insights into the spontaneity of the reaction. While the absolute value of the free energy cannot be measured directly, the change in free energy (Δ G ) throughout the reaction, known as free reaction enthalpy, is measurable. As indicated by the Gibbs-Helmholtz equation, it depends on changes in enthalpy (heat content) and entropy (system disorder) during the reaction. Δ G Δ G  = 0: The system is at equilibrium; no work is performed. Δ G  > 0: The reaction does not proceed spontaneously; it is endergonic . A supply of free energy is required to drive the reaction.
 
 
 __enthalpy_change__* `string`
 
-- The enthalpy (
+- The enthalpy ( H ) represents the heat content within a system, expressing the quantity and nature of chemical bonds. This thermodynamic property cannot be measured independently. However, measurable is the change in enthalpy (Δ H ), which refers to the amount of heat absorbed or released during a chemical reaction (under constant pressure), also known as the reaction enthalpy. Δ H  > 0: Heat energy is supplied; the reaction is endothermic . Δ H Δ S  > 0: The disorder of the system increases. Δ S
 
 
 __special_treatment__* `string`

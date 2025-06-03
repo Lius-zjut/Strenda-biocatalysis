@@ -1,8 +1,40 @@
+"""
+This file contains Pydantic model definitions for data validation.
+
+Pydantic is a data validation library that uses Python type annotations.
+It allows you to define data models with type hints that are validated
+at runtime while providing static type checking.
+
+Usage example:
+```python
+from my_model import MyModel
+
+# Validates data at runtime
+my_model = MyModel(name="John", age=30)
+
+# Type-safe - my_model has correct type hints
+print(my_model.name)
+
+# Will raise error if validation fails
+try:
+    MyModel(name="", age=30)
+except ValidationError as e:
+    print(e)
+```
+
+For more information see:
+https://docs.pydantic.dev/
+
+WARNING: This is an auto-generated file.
+Do not edit directly - any changes will be overwritten.
+"""
+
+
 ## This is a generated file. Do not modify it manually!
 
 from __future__ import annotations
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Optional, Generic, TypeVar
+from typing import Optional, Generic, TypeVar, Union
 from enum import Enum
 from uuid import uuid4
 from datetime import date, datetime
@@ -73,19 +105,85 @@ def validate_prefix(term: str | dict, prefix: str):
 
 class Components(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    name: str
-    smiles: str
-    persistent_identifier_PID: str
-    concentration: float
-    concentration_unit: str
-    supplier: str
-    purity: float
-    formulation: str
-    solubility_limit: float
-    solubility_limit_unit: str
+    name: str = Field(
+        default=...,
+        description="""The name of the component can be either the
+        trivial or trade name, the systematic
+        designation according to IUPAC
+        nomenclature, or any other means of
+        identifying the substance.""",
+    )
+    smiles: str = Field(
+        default=...,
+        description="""SMILES (Simplified Molecular Input Line Entry
+        System) is a chemical notation used
+        to represent and describe molecular
+        structures in a simplified and human-
+        readable format.""",
+    )
+    persistent_identifier_PID: str = Field(
+        default=...,
+        description="""One or more identifiers that refer to the
+        compound, such as CAS number, PubChem
+        code, InChI code, etc.""",
+    )
+    concentration: float = Field(
+        default=...,
+        description="""Concentration of the component.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""The concentration of the component is typically
+        expressed in M (Molar), mmol/L (millimoles
+        per liter), or µmol/L (micromoles per
+        liter).""",
+    )
+    supplier: str = Field(
+        default=...,
+        description="""Information about the source of the compound,
+        usually a commercial supplier with perhaps
+        product code, but could be preparation
+        in a research lab. Should the component
+        have been synthesized internally, please
+        include a literature reference detailing
+        its synthesis.""",
+    )
+    purity: float = Field(
+        default=...,
+        description="""Purity of a substance typically expressed in
+        percentage (%). It is commonly defined
+        as the percentage of the pure or desired
+        compound relative to the total mass or
+        volume of the substance.""",
+    )
+    formulation: str = Field(
+        default=...,
+        description="""The formulation encompass the nature of the
+        component, whether it is in powder,
+        liquid, gaseous form, or any other form,
+        as well as the specific conditions under
+        which it is presented.""",
+    )
+    solubility_limit: float = Field(
+        default=...,
+        description="""This limit represents the maximum concentration
+        of a component, which might include gases,
+        that can dissolve in a solution or gas
+        phase. ( if_applicable )""",
+    )
+    solubility_limit_unit: str = Field(
+        default=...,
+        description="""The solubility limit of a component can be
+        expressed in various units, including
+        M (moles per liter), g/L (grams per
+        liter), % (percentage concentration), or
+        particles per volume, depending on the
+        type of component and the solvent used.
+        ( if_applicable )""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -132,9 +230,9 @@ class Components(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -173,14 +271,37 @@ class Components(BaseModel):
 
 class StorageConditions(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    temperature: float
-    temperature_unit: str
-    storage_start: date
-    additives: str
-    special_treatment: str
+    temperature: float = Field(
+        default=...,
+        description="""Temperature at which the component is stored.""",
+    )
+    temperature_unit: str = Field(
+        default=...,
+        description="""The temperature can be specified in units such as
+        K, °C, or °F.""",
+    )
+    storage_start: date = Field(
+        default=...,
+        description="""The date since the component has been stored.""",
+    )
+    additives: str = Field(
+        default=...,
+        description="""Additives for the storage of components can
+        include antioxidants, stabilizers,
+        drying agent, or even inert gases (argon,
+        nitrogen), among others.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific characteristics
+        or aspects related to a component that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -227,9 +348,9 @@ class StorageConditions(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -264,3 +385,11 @@ class StorageConditions(BaseModel):
 
         add_namespace(self, prefix, iri)
         self.ld_type.append(term)
+
+
+# Rebuild all the classes within this file
+for cls in [
+    Components,
+    StorageConditions,
+]:
+    cls.model_rebuild()

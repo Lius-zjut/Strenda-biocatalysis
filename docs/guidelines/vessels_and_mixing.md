@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Vessels and mixing
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
@@ -32,7 +37,7 @@ Vials are sealable containers available in various sizes and materials, playing 
 __vial_size__* `float`
 
 - The vial's size, which can be its volume or its dimensions.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __vial_size_unit__* `string`
 
@@ -96,16 +101,16 @@ __supplier__* `string`
 __lot_number__* `float`
 
 - The lot number, also known as a batch number or code, is a unique identifier assigned to a specific batch of a product. This makes it possible to check or track information on production.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __sealing_method__* `string`
 
-- Indicate if the wells were sealed with a sealing film or lid. (
+- Indicate if the wells were sealed with a sealing film or lid. ( if_applicable )
 
 
 __sealing_material__* `string`
 
-- The material of the sealing film or lid. (
+- The material of the sealing film or lid. ( if_applicable )
 
 
 __special_treatment__* `string`
@@ -131,7 +136,7 @@ __material__* `string`
 __volume__* `float`
 
 - Indicate the total volume capacity of the Stirred Tank Reactor.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __volume_unit__* `string`
 
@@ -161,7 +166,7 @@ __gas_supply__* `string`
 __gas_supply_rate__* `float`
 
 - Specification of the gas supply rate.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __gas_supply_rate_unit__* `string`
 
@@ -186,7 +191,7 @@ When conducting enzymatic reactions in tubular flow or continuous reactors, it i
 __volume__* `float`
 
 - Indicate the total volume capacity of the tubular flow/continuous reactor.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __volume_unit__* `string`
 
@@ -236,7 +241,7 @@ __shaking_type__* `string`
 __deflection__* `float`
 
 - Information about the extent of deflection or bending of the agitator from its original position of the horizontal shaking system.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __deflection_unit__* `string`
 
@@ -246,7 +251,7 @@ __deflection_unit__* `string`
 __speed__* `float`
 
 - Specify the speed or frequency at which the shaking was conducted.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __speed_unit__* `string`
 
@@ -286,12 +291,12 @@ __supplier__* `string`
 __number_of_stirrers__* `float`
 
 - The number of stirrers available in the system.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __distance_between_stirrers__* `float`
 
 - Information about the distance, spacing or separation between the stirring rods or impellers within a reaction vessel or container.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __distance_between_stirrers_unit__* `string`
 
@@ -301,17 +306,17 @@ __distance_between_stirrers_unit__* `string`
 __stirrer_blade_pitch_angle__* `float`
 
 - The pitch angle at which the blades or paddles of a stirring mechanism are positioned relative to the plane of rotation. It's typically expressed in ° (degrees).
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __number_of_stirrer_blades__* `float`
 
 - The number of blades on each stirrer.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __stirrer_blade_size__* `float`
 
 - The size of the impeller blades in a stirred tank reactor.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __stirrer_blade_size_unit__* `string`
 
@@ -326,7 +331,7 @@ __stirrer_geometry__* `string`
 __stirrer_speed__* `float`
 
 - Specify the speed or frequency at which the stirring was conducted.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __speed_unit__* `string`
 
@@ -336,7 +341,7 @@ __speed_unit__* `string`
 __height_of_stirrer_above_vessel_base__* `float`
 
 - The vertical distance between the bottom of the vessel or container (where the reaction takes place) and the lowest point of the stirring element or stirrer, which is usually located just above the         vessel base.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __height_of_stirrer_above_vessel_base_unit__* `string`
 
@@ -346,7 +351,7 @@ __height_of_stirrer_above_vessel_base_unit__* `string`
 __power_per_volume__* `float`
 
 - The amount of stirring power or energy input into a system per unit volume.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __power_per_volume_unit__* `string`
 
@@ -355,11 +360,11 @@ __power_per_volume_unit__* `string`
 
 __stir_bar_size__* `float`
 
-- `Minimum`: 0.0- `Decription`: The length, diameter, or volume of the stir bar used in the experiment. Different sizes of stir bars can affect the efficiency of mixing based on the volume of the reaction mixture and the vessel size.
+- `Minimum`: 0- `Decription`: The length, diameter, or volume of the stir bar used in the experiment. Different sizes of stir bars can affect the efficiency of mixing based on the volume of the reaction mixture and the vessel size.
 
 __stir_bar_size_unit__* `float`
 
-- `Minimum`: 0.0- `Decription`: The size of a stir bar can be expressed in various units such as length in cm (centimeters), mm (millimeters), m (meters), in (inches), or ft (feet); diameter in mm (millimeters), cm (centimeters), or μm (micrometers); and cm³ (volume in cubic centimeters) or mL (milliliters). The choice of unit depends on the specific dimensions being measured to describe the stir bar's size accurately within experiments.
+- `Minimum`: 0- `Decription`: The size of a stir bar can be expressed in various units such as length in cm (centimeters), mm (millimeters), m (meters), in (inches), or ft (feet); diameter in mm (millimeters), cm (centimeters), or μm (micrometers); and cm³ (volume in cubic centimeters) or mL (milliliters). The choice of unit depends on the specific dimensions being measured to describe the stir bar's size accurately within experiments.
 
 __stir_bar_shape__* `string`
 
@@ -384,7 +389,7 @@ __volume_of_liquid_solid_phase__* `string`
 __residence_time__* `float`
 
 - The residence time, often denoted as "τ" (tau), refers to the average amount of time a substance or component spends inside a specific system or reactor and is to be specified.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __residence_time_unit__* `string`
 

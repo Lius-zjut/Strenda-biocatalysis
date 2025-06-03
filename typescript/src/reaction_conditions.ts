@@ -30,9 +30,12 @@ export interface JsonLd {
              solution or an organic solvent.
     * @param ionic_strength - Ionic strength calculated according to the dissolved ions in the
              solvent. The following formula can be used: $$I =
-             \frac{1}{2} \sum
-    * @param ionic_strength_unit - The unit of ionic strength is usually expressed in mol/L (moles per
-             liter), or in mmol/L (millimoles per liter). (
+             \frac{1}{2} \sum _ {i=1}^n C_i Z_i^2$$ where, I - ionic
+             strength, Ci - ionic concentration and Zi - ion charges.
+             ( if_applicable )
+    * @param ionic_strength_unit - The unit of ionic strength is usually expressed in mol/L (moles
+             per liter), or in mmol/L (millimoles per liter).
+             ( if_applicable )
     * @param further_additives - Further additive like cosolvents used to increase solubility of
              components, e.g. DMSO.
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
@@ -189,7 +192,9 @@ export const TemperatureConstant_WMRSCodec = D.lazy("TemperatureConstant_WMRS", 
              another specific value based on the current progress of
              the reaction process.
     * @param temperature_at_XY - The temperature can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
+             XY during the reaction.
+    * @param time_at_XY - Specification of the exact time point XY at which the temperature
+             was measured.
     * @param time_unit - Common units for specifying time can be s (seconds), min (minutes) or
              h (hours).
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
@@ -237,7 +242,7 @@ export const EventBasedTemperatureShift_WMRSCodec = D.lazy("EventBasedTemperatur
     * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
     * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
              °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
+             this, it should be specified. ( if_applicable )
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
              or aspects related to the pH value that are important
              for reproducibility and are not described by the
@@ -278,8 +283,9 @@ export const pHConstant_WMRSCodec = D.lazy("pHConstant_WMRS", () => D.struct({
              also be the planned adjustment of the pH value to another
              specific value based on the current progress of the
              reaction process.
-    * @param pH_at_XY - The pH can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
+    * @param pH_at_XY - The pH can also be measured at a variably chosen time point XY during
+             the reaction.
+    * @param time_at_XY - Specification of the exact time point XY at which the pH was measured.
     * @param time_unit - Common units for specifying time can be s (seconds) or min (minutes).
     * @param detected_when - Specification whether all components of the reaction solution
              were already present or if some were added after the
@@ -291,7 +297,7 @@ export const pHConstant_WMRSCodec = D.lazy("pHConstant_WMRS", () => D.struct({
     * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
     * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
              °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
+             this, it should be specified. ( if_applicable )
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
              or aspects related to the pH value that are important
              for reproducibility and are not described by the
@@ -336,9 +342,12 @@ export const EventBasedpHShift_WMRSCodec = D.lazy("EventBasedpHShift_WMRS", () =
              solution or an organic solvent.
     * @param ionic_strength - Ionic strength calculated according to the dissolved ions in the
              solvent. The following formula can be used: $$I =
-             \frac{1}{2} \sum
-    * @param ionic_strength_unit - The unit of ionic strength is usually expressed in mol/L (moles per
-             liter), or in mmol/L (millimoles per liter). (
+             \frac{1}{2} \sum _ {1}^n C_i Z_i^2$$ where, I - ionic
+             strength, Ci - ionic concentration and Zi - ion charges
+             ( if_applicable )
+    * @param ionic_strength_unit - The unit of ionic strength is usually expressed in mol/L (moles
+             per liter), or in mmol/L (millimoles per liter).
+             ( if_applicable )
     * @param further_additives - Further additive like cosolvents used to increase solubility of
              reactants, e.g. DMSO.
     * @param Flow_rate - The flow rate must be specified to determine how fast a liquid or gas
@@ -513,21 +522,25 @@ export const TemperatureConstant_TFCRCodec = D.lazy("TemperatureConstant_TFCR", 
              another specific value based on the current progress of
              the reaction process.
     * @param temperature_at_XY - The temperature can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
+             XY during the reaction.
+    * @param time_at_XY - Specification of the exact time point XY at which the temperature
+             was measured.
     * @param time_unit - Common units for specifying time can be s (seconds), min (minutes)
              h (hours).
     * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
-    * @param temperature_gradient_beginning - The initial temperature from which the temperature gradient begins. (
+    * @param temperature_gradient_beginning - The initial temperature from which the temperature gradient begins.
+             ( if_applicable )
     * @param temperature_gradient_end - The target temperature reached after the temperature gradient is
-             applied. (
+             applied. ( if_applicable )
     * @param gradient_length - The distance or time span over which the temperature gradient is
-             applied. (
+             applied. ( if_applicable )
     * @param gradient_length_unit - The gradient length can be specified either as the physical distance
-             (e.g. in meters) or as the time span (e.g. in minutes). (
+             (e.g. in meters) or as the time span (e.g. in minutes).
+             ( if_applicable )
     * @param measurement_points - Information about the locations or time points where temperature
              measurements are taken to monitor the gradient. This
              can be important to ensure that the gradient behaves as
-             intended. (
+             intended. ( if_applicable )
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
              or aspects related to the temperature profile that are
              important for reproducibility and are not described by
@@ -584,7 +597,7 @@ export const DynamicTemperature_TFCRCodec = D.lazy("DynamicTemperature_TFCR", ()
     * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
     * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
              °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
+             this, it should be specified. ( if_applicable )
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
              or aspects related to the pH value that are important
              for reproducibility and are not described by the
@@ -624,8 +637,9 @@ export const pHConstant_TFCRCodec = D.lazy("pHConstant_TFCR", () => D.struct({
              also be the planned adjustment of the pH value to another
              specific value based on the current progress of the
              reaction process.
-    * @param pH_at_XY - The pH can also be measured at a variably chosen time point
-    * @param time_at_XY - Specification of the exact time point
+    * @param pH_at_XY - The pH can also be measured at a variably chosen time point XY during
+             the reaction.
+    * @param time_at_XY - Specification of the exact time point XY at which the pH was measured.
     * @param time_unit - Common units for specifying time can be s (seconds) or min (minutes).
     * @param detected_when - Specification whether all components of the reaction solution
              were already present or if some were added after the
@@ -637,15 +651,19 @@ export const pHConstant_TFCRCodec = D.lazy("pHConstant_TFCR", () => D.struct({
     * @param temperature_unit - The temperature can be specified in units such as K, °C, or °F.
     * @param calibration_pH_electrode - Usually, a pH electrode is calibrated using standard buffers at 20-25
              °C. If the conditions in the reaction mixture differ from
-             this, it should be specified. (
-    * @param pH_gradient_beginning - The initial pH from which the pH gradient begins. (
-    * @param pH_gradient_end - The target pH reached after the pH gradient is applied. (
-    * @param gradient_length - The distance or time span over which the pH gradient is applied. (
+             this, it should be specified. ( if_applicable )
+    * @param pH_gradient_beginning - The initial pH from which the pH gradient begins. ( if_applicable )
+    * @param pH_gradient_end - The target pH reached after the pH gradient is applied.
+             ( if_applicable )
+    * @param gradient_length - The distance or time span over which the pH gradient is applied.
+             ( if_applicable )
     * @param gradient_length_unit - The gradient length can be specified either as the physical distance
-             (e.g. in meters) or as the time span (e.g. in minutes). (
+             (e.g. in meters) or as the time span (e.g. in minutes).
+             ( if_applicable )
     * @param measurement_points - Information about the locations or time points where pH measurements
              are taken to monitor the gradient. This can be important
-             to ensure that the gradient behaves as intended. (
+             to ensure that the gradient behaves as intended.
+             ( if_applicable )
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
              or aspects related to the pH value that are important
              for reproducibility and are not described by the

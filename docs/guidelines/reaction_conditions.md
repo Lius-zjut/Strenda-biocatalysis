@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Reaction conditions
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
@@ -58,12 +63,12 @@ __solvent_description__* `string`
 
 __ionic_strength__* `float`
 
-- Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum
-- `Minimum`: 0.0
+- Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum _ {i=1}^n C_i Z_i^2$$ where, I - ionic strength, Ci - ionic concentration and Zi - ion charges. ( if_applicable )
+- `Minimum`: 0
 
 __ionic_strength_unit__* `string`
 
-- The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (
+- The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). ( if_applicable )
 
 
 __further_additives__* `string`
@@ -84,7 +89,7 @@ To describe a multiphasic system, precise information about the phases used and 
 __phases_number__* `float`
 
 - Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __special_treatment__* `string`
 
@@ -104,7 +109,7 @@ __liquid_type__* `string`
 __liquid_amount__* `float`
 
 - Amount of the liquid added to the reaction.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __liquid_unit__* `string`
 
@@ -124,7 +129,7 @@ __solid_type__* `string`
 __solid_amount__* `float`
 
 - Mass of the solid compound used in the reaction solution.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __solid_unit__* `string`
 
@@ -144,7 +149,7 @@ __gas_type__* `string`
 __gas_amount__* `float`
 
 - Concentration of the gas in the gas phase.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __gas_unit__* `string`
 
@@ -159,7 +164,7 @@ The temperature, if constant, must be clearly defined.Event-based temperature sh
 __temperature__* `float`
 
 - Temperature during the reaction.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_unit__* `string`
 
@@ -184,12 +189,12 @@ __temperature_unit__* `string`
 __temperature_beginning__* `float`
 
 - The initial temperature, prior to the start of the reaction, should be specified.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_after_event__* `float`
 
 - The temperature that is present after a specific event has occurred.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __event_description__* `string`
 
@@ -198,13 +203,13 @@ __event_description__* `string`
 
 __temperature_at_XY__* `float`
 
-- The temperature can also be measured at a variably chosen time point
-- `Minimum`: 0.0
+- The temperature can also be measured at a variably chosen time point XY  during the reaction.
+- `Minimum`: 0
 
 __time_at_XY__* `float`
 
-- Specification of the exact time point
-- `Minimum`: 0.0
+- Specification of the exact time point XY  at which the temperature was measured.
+- `Minimum`: 0
 
 __time_unit__* `string`
 
@@ -224,7 +229,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 __pH_value__* `float`
 
 - Value of the pH.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __detected_when__* `string`
 
@@ -239,7 +244,7 @@ __detected_how__* `string`
 __temperature__* `float`
 
 - The temperature at the time of pH measurement.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_unit__* `string`
 
@@ -248,7 +253,7 @@ __temperature_unit__* `string`
 
 __calibration_pH_electrode__* `string`
 
-- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
+- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. ( if_applicable )
 
 
 __special_treatment__* `string`
@@ -264,12 +269,12 @@ If the pH is changed during the course of the reaction or there is an event-base
 __pH_beginning__* `float`
 
 - The initial pH, prior to the start of the reaction, should be specified.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __pH_after_event__* `float`
 
 - The pH that is present after a specific event has occurred.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __event_description__* `string`
 
@@ -278,13 +283,13 @@ __event_description__* `string`
 
 __pH_at_XY__* `float`
 
-- The pH can also be measured at a variably chosen time point
-- `Minimum`: 0.0
+- The pH can also be measured at a variably chosen time point XY  during the reaction.
+- `Minimum`: 0
 
 __time_at_XY__* `float`
 
-- Specification of the exact time point
-- `Minimum`: 0.0
+- Specification of the exact time point XY  at which the pH was measured.
+- `Minimum`: 0
 
 __time_unit__* `string`
 
@@ -304,7 +309,7 @@ __detected_how__* `string`
 __temperature__* `float`
 
 - The temperature at the time of pH measurement.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_unit__* `string`
 
@@ -313,7 +318,7 @@ __temperature_unit__* `string`
 
 __calibration_pH_electrode__* `string`
 
-- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
+- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. ( if_applicable )
 
 
 __special_treatment__* `string`
@@ -333,12 +338,12 @@ __solvent_description__* `string`
 
 __ionic_strength__* `float`
 
-- Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum
-- `Minimum`: 0.0
+- Ionic strength calculated according to the dissolved ions in the solvent. The following formula can be used: $$I = \frac{1}{2} \sum _ {1}^n C_i Z_i^2$$ where, I - ionic strength, Ci - ionic concentration and Zi - ion charges ( if_applicable )
+- `Minimum`: 0
 
 __ionic_strength_unit__* `string`
 
-- The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). (
+- The unit of ionic strength is usually expressed in mol/L (moles per liter), or in mmol/L (millimoles per liter). ( if_applicable )
 
 
 __further_additives__* `string`
@@ -369,7 +374,7 @@ To describe a multiphasic system, precise information about the phases used and 
 __phases_number__* `float`
 
 - Number of phases present in the system, if there is an aqueous and a gas phase present, the number is 2.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __Flow_rate__* `float`
 
@@ -399,7 +404,7 @@ __liquid_type__* `string`
 __liquid_amount__* `float`
 
 - Amount of the liquid added to the reaction.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __liquid_unit__* `string`
 
@@ -419,7 +424,7 @@ __solid_type__* `string`
 __solid_amount__* `float`
 
 - Mass of the solid used in the reaction solution.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __solid_unit__* `string`
 
@@ -439,7 +444,7 @@ __gas_type__* `string`
 __gas_amount__* `float`
 
 - Concentration of the gas in the gas phase.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __gas_unit__* `string`
 
@@ -454,7 +459,7 @@ The temperature, if constant, must be clearly defined.Dynamic temperature
 __temperature__* `float`
 
 - Temperature during the reaction.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_unit__* `string`
 
@@ -474,12 +479,12 @@ If there is a temperature gradient or different temperatures are measured in the
 __temperature_beginning__* `float`
 
 - The initial temperature, prior to the start of the reaction, should be specified.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_after_event__* `float`
 
 - The temperature that is present after a specific event has occurred.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __event_description__* `string`
 
@@ -488,13 +493,13 @@ __event_description__* `string`
 
 __temperature_at_XY__* `float`
 
-- The temperature can also be measured at a variably chosen time point
-- `Minimum`: 0.0
+- The temperature can also be measured at a variably chosen time point XY  during the reaction.
+- `Minimum`: 0
 
 __time_at_XY__* `float`
 
-- Specification of the exact time point
-- `Minimum`: 0.0
+- Specification of the exact time point XY  at which the temperature was measured.
+- `Minimum`: 0
 
 __time_unit__* `string`
 
@@ -508,27 +513,27 @@ __temperature_unit__* `string`
 
 __temperature_gradient_beginning__* `float`
 
-- The initial temperature from which the temperature gradient begins. (
-- `Minimum`: 0.0
+- The initial temperature from which the temperature gradient begins. ( if_applicable )
+- `Minimum`: 0
 
 __temperature_gradient_end__* `float`
 
-- The target temperature reached after the temperature gradient is applied. (
-- `Minimum`: 0.0
+- The target temperature reached after the temperature gradient is applied. ( if_applicable )
+- `Minimum`: 0
 
 __gradient_length__* `float`
 
-- The distance or time span over which the temperature gradient is applied. (
-- `Minimum`: 0.0
+- The distance or time span over which the temperature gradient is applied. ( if_applicable )
+- `Minimum`: 0
 
 __gradient_length_unit__* `string`
 
-- The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (
+- The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). ( if_applicable )
 
 
 __measurement_points__* `string`
 
-- Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.                       (
+- Information about the locations or time points where temperature measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended.                       ( if_applicable )
 
 
 __special_treatment__* `string`
@@ -544,7 +549,7 @@ Information about the pH value in the system, if the pH is constant over the cou
 __pH_value__* `float`
 
 - The value of the pH.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __detected_when__* `string`
 
@@ -559,7 +564,7 @@ __detected_how__* `string`
 __temperature__* `float`
 
 - The temperature at the time of pH measurement.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_unit__* `string`
 
@@ -568,7 +573,7 @@ __temperature_unit__* `string`
 
 __calibration_pH_electrode__* `string`
 
-- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
+- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. ( if_applicable )
 
 
 __special_treatment__* `string`
@@ -584,12 +589,12 @@ If there is a pH gradient or different pHs are measured in the system, these mus
 __pH_beginning__* `float`
 
 - The initial pH, prior to the start of the reaction, should be specified.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __pH_after_event__* `float`
 
 - The pH that is present after a specific event has occurred.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __event_description__* `string`
 
@@ -598,13 +603,13 @@ __event_description__* `string`
 
 __pH_at_XY__* `float`
 
-- The pH can also be measured at a variably chosen time point
-- `Minimum`: 0.0
+- The pH can also be measured at a variably chosen time point XY  during the reaction.
+- `Minimum`: 0
 
 __time_at_XY__* `float`
 
-- Specification of the exact time point
-- `Minimum`: 0.0
+- Specification of the exact time point XY  at which the pH was measured.
+- `Minimum`: 0
 
 __time_unit__* `string`
 
@@ -624,7 +629,7 @@ __detected_how__* `string`
 __temperature__* `float`
 
 - The temperature at the time of pH measurement.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __temperature_unit__* `string`
 
@@ -633,32 +638,32 @@ __temperature_unit__* `string`
 
 __calibration_pH_electrode__* `string`
 
-- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. (
+- Usually, a pH electrode is calibrated using standard buffers at 20-25 °C. If the conditions in the reaction mixture differ from this, it should be specified. ( if_applicable )
 
 
 __pH_gradient_beginning__* `float`
 
-- The initial pH from which the pH gradient begins. (
-- `Minimum`: 0.0
+- The initial pH from which the pH gradient begins. ( if_applicable )
+- `Minimum`: 0
 
 __pH_gradient_end__* `float`
 
-- The target pH reached after the pH gradient is applied. (
-- `Minimum`: 0.0
+- The target pH reached after the pH gradient is applied. ( if_applicable )
+- `Minimum`: 0
 
 __gradient_length__* `float`
 
-- The distance or time span over which the pH gradient is applied. (
-- `Minimum`: 0.0
+- The distance or time span over which the pH gradient is applied. ( if_applicable )
+- `Minimum`: 0
 
 __gradient_length_unit__* `string`
 
-- The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). (
+- The gradient length can be specified either as the physical distance (e.g. in meters) or as the time span (e.g. in minutes). ( if_applicable )
 
 
 __measurement_points__* `string`
 
-- Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended. (
+- Information about the locations or time points where pH measurements are taken to monitor the gradient. This can be important to ensure that the gradient behaves as intended. ( if_applicable )
 
 
 __special_treatment__* `string`

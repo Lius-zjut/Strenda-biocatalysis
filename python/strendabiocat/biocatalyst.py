@@ -1,8 +1,40 @@
+"""
+This file contains Pydantic model definitions for data validation.
+
+Pydantic is a data validation library that uses Python type annotations.
+It allows you to define data models with type hints that are validated
+at runtime while providing static type checking.
+
+Usage example:
+```python
+from my_model import MyModel
+
+# Validates data at runtime
+my_model = MyModel(name="John", age=30)
+
+# Type-safe - my_model has correct type hints
+print(my_model.name)
+
+# Will raise error if validation fails
+try:
+    MyModel(name="", age=30)
+except ValidationError as e:
+    print(e)
+```
+
+For more information see:
+https://docs.pydantic.dev/
+
+WARNING: This is an auto-generated file.
+Do not edit directly - any changes will be overwritten.
+"""
+
+
 ## This is a generated file. Do not modify it manually!
 
 from __future__ import annotations
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Optional, Generic, TypeVar
+from typing import Optional, Generic, TypeVar, Union
 from enum import Enum
 from uuid import uuid4
 from datetime import date, datetime
@@ -73,23 +105,123 @@ def validate_prefix(term: str | dict, prefix: str):
 
 class BiocatalystPurchased(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    name: str
-    ec_number: str
-    molecular_weight: float
-    molecular_weight_unit: str
-    catalyzed_reaction: str
-    sequence_amino_acid: str
-    sequence_DNA: str
-    origin_organism: str
-    supplier: str
-    production_organism: str
-    posttranslational_modification: str
-    purity: float
-    purity_specification: str
-    formulation: str
+    name: str = Field(
+        default=...,
+        description="""The name of the biocatalyst can be either generic
+        based on the catalyzed reaction, for
+        example, 'lipase' or more specifically
+        by describing the genus and species, such
+        as ' Bacillus amyloliquefaciens alpha-
+        amylase'.""",
+    )
+    ec_number: str = Field(
+        default=...,
+        description="""Numerical classification system that categorizes
+        enzymes based on their biochemical
+        function and reaction mechanism, such as
+        EC 3.1.4.12.""",
+    )
+    molecular_weight: float = Field(
+        default=...,
+        description="""The molecular weight (MW) refer to the sum of the
+        atomic weights of the atoms in a molecule
+        and therefore describes the mass of an
+        enzyme.""",
+    )
+    molecular_weight_unit: str = Field(
+        default=...,
+        description="""The enzyme size or molar weight is typically
+        expressed in kDa (kilodaltons).""",
+    )
+    catalyzed_reaction: str = Field(
+        default=...,
+        description="""The reaction catalyzed by the biocatalyst.""",
+    )
+    sequence_amino_acid: str = Field(
+        default=...,
+        description="""The amino acid sequence of the biocatalyst. The
+        amino acid sequence can be represented in
+        either a three-letter or one-letter code.
+        For instance, "Ala-Ser-Gly" corresponds
+        to the three-letter code, while "ASG"
+        represents the same sequence in the one-
+        letter code. One of the databases commonly
+        used for storing and retrieving amino
+        acid sequences is the UniProt database
+        (https://www.uniprot.org/). UniProt
+        provides extensive information on protein
+        sequences, including their one-letter and
+        three-letter amino acid codes, allowing
+        researchers to access and analyze various
+        protein sequences.""",
+    )
+    sequence_DNA: str = Field(
+        default=...,
+        description="""The DNA sequence of the biocatalyst including any
+        tags and linkers.""",
+    )
+    origin_organism: str = Field(
+        default=...,
+        description="""The specific species or source from which the
+        enzyme is derived or isolated. It includes
+        information about the genus and species of
+        the organism. However, the cell type from
+        which the biocatalyst is derived could be
+        bacterial, as well as plant, animal, or
+        other sources. ( if_applicable )""",
+    )
+    supplier: str = Field(
+        default=...,
+        description="""Information about the supplier from which the
+        enzyme was purchased. If possible, a
+        reference for the purchased biocatalyst
+        should also be provided.""",
+    )
+    production_organism: str = Field(
+        default=...,
+        description="""Information about the organism in which the
+        biocatalyst was produced is crucial in the
+        context of heterologous gene expression.""",
+    )
+    posttranslational_modification: str = Field(
+        default=...,
+        description="""Information about any chemical modifications
+        or alterations that occur to the
+        biocatalyst's protein structure after
+        translation, such as phosphorylation,
+        glycosylation, acetylation, methylation,
+        ubiquitination and other modifications.""",
+    )
+    purity: float = Field(
+        default=...,
+        description="""Purity of enzymes typically expressed in
+        percentage (%). It is usually stated
+        as the percentage of the pure enzyme or
+        active component relative to the total
+        mass of the enzyme preparation.""",
+    )
+    purity_specification: str = Field(
+        default=...,
+        description="""Description of how the purity of the biocatalyst
+        was determined. In case of purchased
+        enzymes, this information is often
+        available from the product specification
+        sheet.""",
+    )
+    formulation: str = Field(
+        default=...,
+        description="""Depending on the formulation, the biocatalyst
+        can exist either in a dissolved state
+        within a solvent or as a solid powder.
+        It defines the physical state in which
+        the biocatalyst is used. Additional
+        information regarding the application or
+        formulation in the experiment should be
+        entered in the next subcategory.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -136,9 +268,9 @@ class BiocatalystPurchased(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -177,26 +309,149 @@ class BiocatalystPurchased(BaseModel):
 
 class BiocatalystSelfProduced(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    name: str
-    ec_number: str
-    molecular_weight: float
-    molecular_weight_unit: str
-    catalyzed_reaction: str
-    sequence_amino_acid: str
-    sequence_DNA: str
-    sequence_plasmid: str
-    plasmid_specifications: str
-    origin_organism: str
-    production_organism: str
-    posttranslational_modification: str
-    purity: float
-    purity_specification: str
-    purification_method: str
-    formulation: str
-    special_treatment: str
+    name: str = Field(
+        default=...,
+        description="""The name of the biocatalyst can be either generic
+        based on the catalyzed reaction, for
+        example, 'lipase' or more specifically
+        by describing the genus and species, such
+        as ' Bacillus amyloliquefaciens alpha-
+        amylase'.""",
+    )
+    ec_number: str = Field(
+        default=...,
+        description="""Numerical classification system that categorizes
+        enzymes based on their biochemical
+        function and reaction mechanism, such as
+        EC 3.1.4.12.""",
+    )
+    molecular_weight: float = Field(
+        default=...,
+        description="""The molecular weight (MW) refer to the sum of the
+        atomic weights of the atoms in a molecule
+        and therefore describes the mass of an
+        enzyme.""",
+    )
+    molecular_weight_unit: str = Field(
+        default=...,
+        description="""The enzyme size or molar weight is typically
+        expressed in kDa (kilodaltons).""",
+    )
+    catalyzed_reaction: str = Field(
+        default=...,
+        description="""The reaction catalyzed by the biocatalyst.""",
+    )
+    sequence_amino_acid: str = Field(
+        default=...,
+        description="""The amino acid sequence of the biocatalyst. The
+        amino acid sequence can be represented in
+        either a three-letter or one-letter code.
+        For instance, "Ala-Ser-Gly" corresponds
+        to the three-letter code, while "ASG"
+        represents the same sequence in the one-
+        letter code. One of the databases commonly
+        used for storing and retrieving amino
+        acid sequences is the UniProt database
+        (https://www.uniprot.org/). UniProt
+        provides extensive information on protein
+        sequences, including their one-letter and
+        three-letter amino acid codes, allowing
+        researchers to access and analyze various
+        protein sequences.""",
+    )
+    sequence_DNA: str = Field(
+        default=...,
+        description="""The DNA sequence of the biocatalyst including any
+        tags and linkers.""",
+    )
+    sequence_plasmid: str = Field(
+        default=...,
+        description="""The DNA sequence of the plasmid used to produce
+        the biocatalyst. The sequence can be
+        provided in plain text or as a database
+        ID.""",
+    )
+    plasmid_specifications: str = Field(
+        default=...,
+        description="""All DNA sequence changes (e.g. codon optimization
+        for E. coli , insertion of affinity
+        tags, sequence truncation, etc.) should
+        be provided.""",
+    )
+    origin_organism: str = Field(
+        default=...,
+        description="""The specific species or source from which the
+        enzyme is derived or isolated. It includes
+        information about the genus and species of
+        the organism. ( if_applicable )""",
+    )
+    production_organism: str = Field(
+        default=...,
+        description="""Information about the organism in which the
+        biocatalyst was produced is crucial
+        in the context of heterologous gene
+        expression. If the production strain was
+        purchased, more detailed information on
+        the manufacturer and the organism should
+        be provided.""",
+    )
+    posttranslational_modification: str = Field(
+        default=...,
+        description="""Information about any chemical modifications
+        or alterations that occur to the
+        biocatalyst's protein structure after
+        translation, such as phosphorylation,
+        glycosylation, acetylation, methylation,
+        ubiquitination and other modifications.""",
+    )
+    purity: float = Field(
+        default=...,
+        description="""Purity of enzymes typically expressed in
+        percentage (%). It is usually stated
+        as the percentage of the pure enzyme or
+        active component relative to the total
+        mass of the enzyme preparation.""",
+    )
+    purity_specification: str = Field(
+        default=...,
+        description="""The choice of method for the purity determination
+        depends on the type of enzyme and the
+        available resources and may include gel
+        electrophoresis, HPLC, ELISA, Western
+        blotting, etc.""",
+    )
+    purification_method: str = Field(
+        default=...,
+        description="""The choice of purification methods is diverse
+        and can impact the enzyme, with possible
+        methods including chromatographic
+        techniques, precipitation, HPLC,
+        ultrafiltration, dialysis, salt
+        fractionation, etc.""",
+    )
+    formulation: str = Field(
+        default=...,
+        description="""Depending on the formulation, the biocatalyst
+        can exist either in a dissolved state
+        within a solvent or as a solid powder.
+        It defines the physical state in which
+        the biocatalyst is used. Additional
+        information regarding the application or
+        formulation in the experiment should be
+        entered in the next subcategory.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -243,9 +498,9 @@ class BiocatalystSelfProduced(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -284,17 +539,82 @@ class BiocatalystSelfProduced(BaseModel):
 
 class PurifiedBiocatalyst(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    concentration: float
-    concentration_unit: str
-    concentration_determination_method: str
-    activity: float
-    activity_unit: str
-    activity_determination_method: str
-    formulation: str
-    special_treatment: str
+    concentration: float = Field(
+        default=...,
+        description="""Concentration of the biocatalyst.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""Concentration of the biocatalyst is typically
+        expressed in g/L (grams per liter).""",
+    )
+    concentration_determination_method: str = Field(
+        default=...,
+        description="""It is important to specify the method used
+        for concentration determination. There
+        are various methods available for the
+        determination of the enzyme concentration
+        in solution e.g., the Bradford method,
+        Lowry method, UV absorption, activity
+        assays, ELISA, etc.""",
+    )
+    activity: float = Field(
+        default=...,
+        description="""The activity of the biocatalyst can be expressed
+        either as volumetric activity, which
+        considers the total activity of the
+        enzyme in the solution, or as specific
+        activity, which takes into account the
+        enzyme's purity and indicates the activity
+        of an enzyme per unit of enzyme protein
+        or enzyme mass. If the biocatalyst has
+        been purchased, it is advisable to look
+        up more precise information (e.g. via an
+        SOP) regarding the activities specified
+        by the manufacturer, as these may differ
+        from the values determined by yourself
+        (different activity assays can lead to
+        different activity values). In addition,
+        the loss of activity of the biocatalyst
+        over the storage period should be taken
+        into account.""",
+    )
+    activity_unit: str = Field(
+        default=...,
+        description="""The enzyme's activity can be expressed either
+        as specific activity[] U/mg (Units per
+        milligram) or as volumetric activity[] U/
+        mL (Units per milliliter) or as kcat[]
+        time-1 (catalytic const. or turnover
+        number).""",
+    )
+    activity_determination_method: str = Field(
+        default=...,
+        description="""Enzyme activity can be measured in various
+        ways, including spectrophotometrically,
+        colorimetrically, fluorometrically, assays
+        and using biosensors, etc.""",
+    )
+    formulation: str = Field(
+        default=...,
+        description="""Depending on the formulation, the biocatalyst can
+        be applied dissolved in a solvent or as
+        a dried powder. It defines the physical
+        state in which the biocatalyst is applied
+        in the reaction.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -341,9 +661,9 @@ class PurifiedBiocatalyst(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -382,14 +702,54 @@ class PurifiedBiocatalyst(BaseModel):
 
 class CrudeCellExtract(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    cell_disruption_process: str
-    concentration: float
-    concentration_unit: str
-    concentration_determination_method: str
-    special_treatment: str
+    cell_disruption_process: str = Field(
+        default=...,
+        description="""Cell disruption processes and methods
+        include various techniques such as
+        mechanical disruption (e.g., grinding,
+        homogenization, ultrasonication, french
+        press), chemical disruption (e.g.,
+        detergents, enzymes), physical techniques
+        (e.g., electroporation, high-pressure
+        homogenization, thermal treatment)
+        to break cell walls and release cell
+        contents.""",
+    )
+    concentration: float = Field(
+        default=...,
+        description="""Concentration of the biocatalyst.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""Concentration of the biocatalyst is typically
+        expressed in g/L (grams per liter).""",
+    )
+    concentration_determination_method: str = Field(
+        default=...,
+        description="""It is important to specify the type of
+        concentration determination. There are
+        numerous methods available to determine
+        protein content, yet only a few are
+        suitable for estimating or determining
+        the protein content of the target protein
+        within a mixture. Some of these methods
+        include activity assays or the Western
+        blotting technique, which relies on
+        prior SDS-PAGE and antibody binding for
+        detection.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -436,9 +796,9 @@ class CrudeCellExtract(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -477,15 +837,58 @@ class CrudeCellExtract(BaseModel):
 
 class WholeCellBiocatalyst(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    harvesting_method: str
-    concentration: float
-    concentration_unit: str
-    concentration_determination_method: str
-    formulation: str
-    special_treatment: str
+    harvesting_method: str = Field(
+        default=...,
+        description="""In biotechnological processes, there are various
+        methods for harvesting cells, including
+        centrifugation, filtration, precipitation,
+        etc.""",
+    )
+    concentration: float = Field(
+        default=...,
+        description="""In the case of whole-cell catalysts, the cell
+        concentration or cell mass is commonly
+        used as a measure.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""In case of lyophilized cells, the quantity of
+        lyophilized cells can be specified in
+        g (grams) or kg (kilograms). If wet
+        cells are used, the cell concentration
+        can be indicated in cells/mL (cells per
+        milliliter) or cells/g (cells per gram) of
+        wet cell weight. Other common indications
+        of the concentration of wet cells as
+        biocatalysts are the cell concentration
+        in g/L (grams per liter) or OD (optical
+        density).""",
+    )
+    concentration_determination_method: str = Field(
+        default=...,
+        description="""Specify the method for cell number per cell weight
+        determination (e.g., flow cytometry,
+        weight of dry biomass, spectrophotometry).""",
+    )
+    formulation: str = Field(
+        default=...,
+        description="""When applying a whole cell biocatalyst, there are
+        various options. Cultivated cells can be
+        lyophilized or used as wet cells after
+        separation from the medium.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -532,9 +935,9 @@ class WholeCellBiocatalyst(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -573,14 +976,48 @@ class WholeCellBiocatalyst(BaseModel):
 
 class SecretedEnzyme(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    separation_method: str
-    concentration: float
-    concentration_unit: str
-    concentration_determination_method: str
-    special_treatment: str
+    separation_method: str = Field(
+        default=...,
+        description="""There are various methods to separate the
+        supernatant from the cells, common methods
+        include centrifugation, filtration,
+        sedimentation, etc.""",
+    )
+    concentration: float = Field(
+        default=...,
+        description="""Concentration of the biocatalyst.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""Concentration of the biocatalyst is typically
+        expressed in g/L (grams per liter).""",
+    )
+    concentration_determination_method: str = Field(
+        default=...,
+        description="""It is important to specify the type of
+        concentration determination. There are
+        numerous methods available to determine
+        protein content, yet only a few are
+        suitable for estimating or determining
+        the protein content of the target protein
+        within a mixture. Some of these methods
+        include activity assays or the Western
+        blotting technique, which relies on
+        prior SDS-PAGE and antibody binding for
+        detection.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -627,9 +1064,9 @@ class SecretedEnzyme(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -668,14 +1105,51 @@ class SecretedEnzyme(BaseModel):
 
 class CellFreeProduction(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    source_of_cellfree_extract: str
-    concentration: float
-    concentration_unit: str
-    concentration_determination_method: str
-    special_treatment: str
+    source_of_cellfree_extract: str = Field(
+        default=...,
+        description="""Specifiy the organism or cell type from which the
+        cell-free extract is derived (e.g., by
+        describing the genus and species). These
+        could be bacterial, plant, animal, or
+        another sources. If available, reference
+        can be made to an appropriate database
+        entry.""",
+    )
+    concentration: float = Field(
+        default=...,
+        description="""Concentration of the biocatalyst.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""Concentration of the biocatalyst is typically
+        expressed in g/L (grams per liter).""",
+    )
+    concentration_determination_method: str = Field(
+        default=...,
+        description="""It is important to specify the type of
+        concentration determination. There are
+        numerous methods available to determine
+        protein content, yet only a few are
+        suitable for estimating or determining
+        the protein content of the target protein
+        within a mixture. Some of these methods
+        include activity assays or the Western
+        blotting technique, which relies on
+        prior SDS-PAGE and antibody binding for
+        detection.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -722,9 +1196,9 @@ class CellFreeProduction(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -763,19 +1237,120 @@ class CellFreeProduction(BaseModel):
 
 class Immobilised(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    biocatalyst: str
-    immobilisation_chemistry: str
-    carrier_material: str
-    linkers: str
-    immobilisation_method: str
-    purification_method: str
-    concentration: float
-    concentration_unit: str
-    concentration_determination_method: str
-    special_treatment: str
+    biocatalyst: str = Field(
+        default=...,
+        description="""When it comes to the immobilization method, it
+        is also important to mention how the
+        biocatalyst to be immobilized is present
+        (for example, as a purified enzyme, or as
+        a crude cell extract, etc.).""",
+    )
+    immobilisation_chemistry: str = Field(
+        default=...,
+        description="""This aspect denotes the specific chemical
+        methods or techniques used to attach the
+        enzymes onto the chosen base material.
+        Different immobilization chemistries
+        involve various covalent or non-
+        covalent bonding strategies, including
+        crosslinking, adsorption, covalent
+        bonding, encapsulation, specific binding
+        via (affinity)tag, or entrapment.""",
+    )
+    carrier_material: str = Field(
+        default=...,
+        description="""If a support material, base, or carrier was
+        utilized, it is necessary to specify the
+        material's name (e.g., gel, membrane,
+        particle) along with the supplier and
+        further product details ( if_applicable )""",
+    )
+    linkers: str = Field(
+        default=...,
+        description="""Linkers are chemical compounds used to establish
+        a connection or bridge between the enzymes
+        and the carrier material. These linkers
+        play a vital role in stabilizing the
+        immobilized enzymes and can influence
+        the efficiency and functionality of the
+        immobilization process. They facilitate
+        binding between the enzymes and the
+        carrier material, promoting a stable and
+        active biocatalyst structure. Common and
+        widespread linkers are spacer molecules,
+        crosslinkers, avidin-biotin or silane
+        coupling agents. ( if_applicable )""",
+    )
+    immobilisation_method: str = Field(
+        default=...,
+        description="""Specify further details regarding the
+        immobilisation method of the enzyme. For a
+        comprehensive report around the technical
+        key data of the immobilization process
+        or method, see literature for further
+        information, e.g. Ansorge-Schumacher2.""",
+    )
+    purification_method: str = Field(
+        default=...,
+        description="""The purification methods can vary depending
+        on whether it involves whole cells
+        or free enzymes. In the case of whole
+        cells, methods such as centrifugation,
+        filtration, or flow cytometry can be
+        employed. In the case of free enzymes,
+        methods like cell lysis, filtration,
+        chromatography, and precipitation, among
+        others, may be used.""",
+    )
+    concentration: float = Field(
+        default=...,
+        description="""Concentration of the biocatalyst or the whole
+        cells on the immobilised phase.""",
+    )
+    concentration_unit: str = Field(
+        default=...,
+        description="""For immobilized enzymes, the concentration is
+        often quantified in terms of enzyme
+        activity per volume (e.g., units per
+        milliliter, U/mL) or weight measurements
+        such as milligrams or grams per liter (mg/
+        L or g/L). When referring to immobilized
+        cells (not the enzymes themselves), units
+        of cells/mL (cells per milliliter) or
+        cells/g (cells per gram) are commonly
+        utilized.""",
+    )
+    concentration_determination_method: str = Field(
+        default=...,
+        description="""Various methods are available to determine the
+        concentration of immobilized enzymes or
+        cells. For immobilized enzymes, methods
+        such as protein measurement or enzymatic
+        activity assays can be used. The protein
+        determination can be determined on the
+        carrier material using a BCA test or
+        as a differential measurement using the
+        Bradford method, $\Delta$280 or also
+        after detachment of the enzyme from the
+        carrier material. An activity measurement
+        is best suited as it provides the activity
+        per gram of immobilized material. For
+        immobilized cells, methods like flow
+        cytometry or biomass measurement are
+        applicable.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the biocatalyst that are
+        important for reproducibility and are not
+        described by the aforementioned metadata,
+        they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -822,9 +1397,9 @@ class Immobilised(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -863,15 +1438,48 @@ class Immobilised(BaseModel):
 
 class StorageConditions(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    temperature: float
-    temperature_unit: str
-    storage_start: date
-    additives: str
-    drying_method: str
-    special_treatment: str
+    temperature: float = Field(
+        default=...,
+        description="""The temperature at which the reactant is stored.""",
+    )
+    temperature_unit: str = Field(
+        default=...,
+        description="""The temperature can be specified in units such as
+        K, °C, or °F.""",
+    )
+    storage_start: date = Field(
+        default=...,
+        description="""The date since the biocatalyst has been stored.""",
+    )
+    additives: str = Field(
+        default=...,
+        description="""Additives for the storage of biocatalyst can
+        include antioxidants, stabilizers,
+        drying agent, or even inert gases (argon,
+        nitrogen), among others.""",
+    )
+    drying_method: str = Field(
+        default=...,
+        description="""For biocatalysts, various drying methods are
+        employed (e.g., freeze-drying, also
+        known as lyophilization, spray-drying,
+        a method that involves atomizing a
+        solution into small particles before
+        drying, or vacuum drying, which removes
+        moisture through low-pressure conditions).
+        ( if_applicable )""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific characteristics
+        or aspects related to the biocatalyst
+        that are important for reproducibility and
+        are not described by the aforementioned
+        metadata, they should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -918,9 +1526,9 @@ class StorageConditions(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -955,3 +1563,18 @@ class StorageConditions(BaseModel):
 
         add_namespace(self, prefix, iri)
         self.ld_type.append(term)
+
+
+# Rebuild all the classes within this file
+for cls in [
+    BiocatalystPurchased,
+    BiocatalystSelfProduced,
+    PurifiedBiocatalyst,
+    CrudeCellExtract,
+    WholeCellBiocatalyst,
+    SecretedEnzyme,
+    CellFreeProduction,
+    Immobilised,
+    StorageConditions,
+]:
+    cls.model_rebuild()

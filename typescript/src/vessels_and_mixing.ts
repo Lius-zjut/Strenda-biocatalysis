@@ -80,8 +80,9 @@ export const VialCodec = D.lazy("Vial", () => D.struct({
              identifier assigned to a specific batch of a product.
              This makes it possible to check or track information
              on production.
-    * @param sealing_method - Indicate if the wells were sealed with a sealing film or lid. (
-    * @param sealing_material - The material of the sealing film or lid. (
+    * @param sealing_method - Indicate if the wells were sealed with a sealing film or lid.
+             ( if_applicable )
+    * @param sealing_material - The material of the sealing film or lid. ( if_applicable )
     * @param special_treatment - If there are any other specific methods, procedures, characteristics
              or aspects related to the plate or its preparation for
              the reaction that are important for reproducibility and
