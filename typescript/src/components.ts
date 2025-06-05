@@ -52,12 +52,12 @@ export interface JsonLd {
              presented.
     * @param solubility_limit - This limit represents the maximum concentration of a component, which
              might include gases, that can dissolve in a solution or
-             gas phase. (
+             gas phase. ( if_applicable )
     * @param solubility_limit_unit - The solubility limit of a component can be expressed in various units,
              including M (moles per liter), g/L (grams per liter),
              % (percentage concentration), or particles per volume,
              depending on the type of component and the solvent used.
-             (
+             ( if_applicable )
 **/
 export interface Components extends JsonLd {
   name: string;

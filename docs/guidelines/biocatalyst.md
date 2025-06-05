@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Biocatalyst
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
@@ -35,7 +40,7 @@ Important information to characterize the biocatalyst and determine its origin.B
 
 __name__* `string`
 
-- The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
+- The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as ' Bacillus amyloliquefaciens  alpha-amylase'.
 
 
 __ec_number__* `string`
@@ -46,7 +51,7 @@ __ec_number__* `string`
 __molecular_weight__* `float`
 
 - The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __molecular_weight_unit__* `string`
 
@@ -70,7 +75,7 @@ __sequence_DNA__* `string`
 
 __origin_organism__* `string`
 
-- The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources. (
+- The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. However, the cell type from which the biocatalyst is        derived could be bacterial, as well as plant, animal, or other sources. ( if_applicable )
 
 
 __supplier__* `string`
@@ -110,7 +115,7 @@ Important information to characterize the biocatalyst and to describe it clearly
 
 __name__* `string`
 
-- The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
+- The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as ' Bacillus amyloliquefaciens  alpha-amylase'.
 
 
 __ec_number__* `string`
@@ -121,7 +126,7 @@ __ec_number__* `string`
 __molecular_weight__* `float`
 
 - The molecular weight (MW) refer to the sum of the atomic weights of the atoms in a molecule and therefore describes the mass of an enzyme.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __molecular_weight_unit__* `string`
 
@@ -150,12 +155,12 @@ __sequence_plasmid__* `string`
 
 __plasmid_specifications__* `string`
 
-- All DNA sequence changes (e.g. codon optimization for
+- All DNA sequence changes (e.g. codon optimization for E. coli , insertion of affinity tags, sequence truncation, etc.) should be provided.
 
 
 __origin_organism__* `string`
 
-- The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. (
+- The specific species or source from which the enzyme is derived or isolated. It includes information about the genus and species of the organism. ( if_applicable )
 
 
 __production_organism__* `string`
@@ -220,7 +225,7 @@ __activity__* `float`
 
 __activity_unit__* `string`
 
-- The enzyme's activity can be expressed either as specific activity [][][]
+- The enzyme's activity can be expressed either as specific activity[] U/mg  (Units per milligram) or as volumetric activity[] U/mL  (Units per milliliter) or as kcat[] time-1  (catalytic const. or turnover number).
 
 
 __activity_determination_method__* `string`
@@ -251,7 +256,7 @@ __cell_disruption_process__* `string`
 __concentration__* `float`
 
 - Concentration of the biocatalyst.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __concentration_unit__* `string`
 
@@ -281,7 +286,7 @@ __harvesting_method__* `string`
 __concentration__* `float`
 
 - In the case of whole-cell catalysts, the cell concentration or cell mass is commonly used as a measure.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __concentration_unit__* `string`
 
@@ -316,7 +321,7 @@ __separation_method__* `string`
 __concentration__* `float`
 
 - Concentration of the biocatalyst.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __concentration_unit__* `string`
 
@@ -346,7 +351,7 @@ __source_of_cellfree_extract__* `string`
 __concentration__* `float`
 
 - Concentration of the biocatalyst.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __concentration_unit__* `string`
 
@@ -380,12 +385,12 @@ __immobilisation_chemistry__* `string`
 
 __carrier_material__* `string`
 
-- If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details (
+- If a support material, base, or carrier was utilized, it is necessary to specify the material's name (e.g., gel, membrane, particle) along with the supplier and further product details ( if_applicable )
 
 
 __linkers__* `string`
 
-- Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. (
+- Linkers are chemical compounds used to establish a connection or bridge between the enzymes and the carrier material. These linkers play a vital role in stabilizing the immobilized enzymes and can           influence the efficiency and functionality of the immobilization process. They facilitate binding between the enzymes and the carrier material, promoting a stable and active biocatalyst structure. Common and            widespread linkers are spacer molecules, crosslinkers, avidin-biotin or silane coupling agents. ( if_applicable )
 
 
 __immobilisation_method__* `string`
@@ -401,7 +406,7 @@ __purification_method__* `string`
 __concentration__* `float`
 
 - Concentration of the biocatalyst or the whole cells on the immobilised phase.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __concentration_unit__* `string`
 
@@ -445,7 +450,7 @@ __additives__* `string`
 
 __drying_method__* `string`
 
-- For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). (
+- For biocatalysts, various drying methods are employed (e.g., freeze-drying, also known as lyophilization, spray-drying, a method that involves atomizing a solution into small particles before drying, or vacuum drying, which removes moisture through low-pressure conditions). ( if_applicable )
 
 
 __special_treatment__* `string`

@@ -143,21 +143,39 @@ export const KineticParametersCodec = D.lazy("KineticParameters", () => D.struct
     * @param c_yield - Yield represents the amount of the desired product obtained from a
              reaction. It is the number of synthesized molecules of
              product per number of starting molecules. The following
-             formula can be used:
+             formula can be used: $$Y_p = \frac{n_p - n _ {p0}}{n _
+             {s0}} \cdot \frac{|v_s|}{|v_p|}$$ where, Yp - yield of
+             the product p (-), np0 - amount of product p at the start
+             of the reaction (mol), np - amount of product p at the
+             end of the reaction (mol), vs - stoichiometric factor
+             for the substrate s (-), vp - stoichiometric factor
+             for the product p (-). Note: The reported yield relies
+             on analytical findings. Typically, the isolated yield
+             is more common in practice as it reflects the precise
+             quantity of product acquired post downstream processing
+             (DSP).
     * @param yield_unit - The yield is typically expressed in percentages (%), reflecting
              the ratio of the actual obtained product quantity to
              the theoretical maximum product quantity that could be
              obtained under ideal conditions.
     * @param space_time_yield - Space-time yield in biocatalysis refers to the mass of product
-             obtained per unit volume of the reactor per unit time.
-             Other terms commonly used in the literature are
+             obtained per unit volume of the reactor per unit
+             time. Other terms commonly used in the literature are
+             volumetric productivity or the reactor productivity . The
+             following formula can be used: $$STY = \frac{m_p}{𝜏 \cdot
+             V_R}$$ where, STY - space-time yield (g L-1 h-1), mp -
+             mass of the synthesized product (g), 𝜏 - residence time r
+             reaction time (h), VR - reactor volume.
     * @param space_time_yield_unit - Space-time yield is commonly expressed in g/L/h (grams per liter per
              hour) or mol/L/h (moles per liter per hour).
     * @param conversion - The term "conversion" refers to the percentage of substrate that
              undergoes transformation into the desired product during
              a reaction. It is the number of converted molecules per
              number of starting molecules. The following formula can
-             be used:
+             be used: $$X_s = \frac{n _ {s0} - n_s}{n _ {s0}}$$ where,
+             Xs - conversion of the substrate s (-), ns0 - amount
+             of substrate s at the start of the reaction (mol), ns -
+             amount of substrate s at the end of the reaction (mol).
     * @param conversion_unit - The conversion is commonly expressed as a percentage (%) to indicate
              the proportion of substrate converted to the desired
              product during a specific reaction.
@@ -242,12 +260,32 @@ export const ActivityAndInitialReactionRateCodec = D.lazy("ActivityAndInitialRea
              trait highlights the enzyme's ability to favor a specific
              enantiomer either as a product or as the preferred
              substrate for a reaction.
-    * @param enantiomeric_excess - The enantiomeric excess (
-    * @param enantiomeric_excess_unit - The primary unit used for enantiomeric excess (
-    * @param diastereomeric_excess - The diasteriomeric excess (
-    * @param diasteriomeric_excess_unit - The primary unit used for diasteriomeric excess (
-    * @param isomeric_content - The isomeric content (
-    * @param isomeric_content_unit - The primary unit used for isomeric content (
+    * @param enantiomeric_excess - The enantiomeric excess ( ee ) measures the degree of purity and
+             efficiency in a chiral catalysis process, representing
+             the excess of one enantiomer over the other in a reaction
+             product. The following formula can be used: $$ee_R =
+             \frac{n_R - n_S}{n_R + n_S}$$ where, eeR - enantiomeric
+             excess of the ( R )-enantiomer (-), nR - amount of
+             the ( R )-enatiomer (mol) and nS - amount of the
+             ( S )-enatiomer (mol).
+    * @param enantiomeric_excess_unit - The primary unit used for enantiomeric excess ( ee ) is percent (%).
+    * @param diastereomeric_excess - The diasteriomeric excess ( de ) represents the difference in the
+             concentration of one diastereomer over another in a
+             reaction product. The following formula can be used: $
+             $de_1 = \frac{n_1 - n_2}{n_1 + n_2}$$ where, de -
+             diasteriomeric excess of the major diasteriomer (-), n1 -
+             amount of the major diasteriomer (mol) and n2 - amount of
+             the minor diasteriomer (mol).
+    * @param diasteriomeric_excess_unit - The primary unit used for diasteriomeric excess ( ee ) is percent (%).
+    * @param isomeric_content - The isomeric content ( ic ) refers to the percentage distribution or
+             ratio of different isomers within a mixture resulting
+             from a reaction or process. It describes how various
+             isomers are represented in a product or mixture. The
+             following formula can be used: $$ic = I_1 / \sum _ {i=1}
+             ^n I_i$$ where, ic - proportion of a specific isomer in
+             a mixture of isomers (-), I1 - amount of the specific
+             isomer (mol) and Ii - quantity of all isomers (mol).
+    * @param isomeric_content_unit - The primary unit used for isomeric content ( ic ) is percent (%).
     * @param chemoselectivity - Chemoselectivity refers to the ability of a chemical reaction to
              target a specific functional group or site within a
              molecule without affecting other reactive groups present.
@@ -303,8 +341,29 @@ export const SelectivityAndSpecificityCodec = D.lazy("SelectivityAndSpecificity"
     kinetic parameters, see literature for further information, e.g.
     Heintz6.
 
-    * @param gibbs_free_energy_change - The Gibbs free energy (
-    * @param enthalpy_change - The enthalpy (
+    * @param gibbs_free_energy_change - The Gibbs free energy ( G ) represents the portion of energy
+             capable of performing work in a reaction under constant
+             temperature and pressure, providing insights into the
+             spontaneity of the reaction. While the absolute value of
+             the free energy cannot be measured directly, the change
+             in free energy (Δ G ) throughout the reaction, known as
+             free reaction enthalpy, is measurable. As indicated by
+             the Gibbs-Helmholtz equation, it depends on changes in
+             enthalpy (heat content) and entropy (system disorder)
+             during the reaction. Δ G Δ G = 0: The system is at
+             equilibrium; no work is performed. Δ G > 0: The reaction
+             does not proceed spontaneously; it is endergonic . A
+             supply of free energy is required to drive the reaction.
+    * @param enthalpy_change - The enthalpy ( H ) represents the heat content within a system,
+             expressing the quantity and nature of chemical
+             bonds. This thermodynamic property cannot be measured
+             independently. However, measurable is the change in
+             enthalpy (Δ H ), which refers to the amount of heat
+             absorbed or released during a chemical reaction (under
+             constant pressure), also known as the reaction enthalpy.
+             Δ H > 0: Heat energy is supplied; the reaction is
+             endothermic . Δ H Δ S > 0: The disorder of the system
+             increases. Δ S
     * @param special_treatment - If there are any other specific metrics, parameters, characteristics
              or aspects related to the thermodynamic parameters that
              are important to document the results accurately and

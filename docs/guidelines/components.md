@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Components
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
@@ -37,7 +42,7 @@ __persistent_identifier_PID__* `string`
 __concentration__* `float`
 
 - Concentration of the component.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __concentration_unit__* `string`
 
@@ -61,12 +66,12 @@ __formulation__* `string`
 
 __solubility_limit__* `float`
 
-- This limit represents the maximum concentration of a component, which might include gases, that can dissolve in a solution or gas phase. (
-- `Minimum`: 0.0
+- This limit represents the maximum concentration of a component, which might include gases, that can dissolve in a solution or gas phase. ( if_applicable )
+- `Minimum`: 0
 
 __solubility_limit_unit__* `string`
 
-- The solubility limit of a component can be expressed in various units, including M (moles per liter), g/L (grams per liter), % (percentage concentration), or particles per volume, depending on the         type of component and the solvent used. (
+- The solubility limit of a component can be expressed in various units, including M (moles per liter), g/L (grams per liter), % (percentage concentration), or particles per volume, depending on the         type of component and the solvent used. ( if_applicable )
 
 
 ------

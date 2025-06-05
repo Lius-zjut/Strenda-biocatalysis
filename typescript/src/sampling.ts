@@ -100,7 +100,8 @@ export const SamplingFromHeterogeneousReactionSolutionsCodec = D.lazy("SamplingF
              notably enhance the solubility of substrates or products,
              directly influencing downstream analyses.
     * @param quenching_ratio - Information about the precise ratio or volume of the quenching
-             solution in relation to the reaction mixture. (
+             solution in relation to the reaction mixture.
+             ( if_applicable )
     * @param treatment_procedure - Any further details regarding the sample processing steps that were
              carried out after it was collected from the reaction
              vessel (e.g., filtering samples).

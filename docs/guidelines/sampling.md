@@ -1,3 +1,8 @@
+---
+hide:
+    - navigation
+---
+
 # Sampling
 
 This page provides comprehensive information about the structure and components of the data model, including detailed descriptions of the types and their properties, information on enumerations, and an overview of the ontologies used and their associated prefixes. Below, you will find a graph that visually represents the overall structure of the data model.
@@ -24,7 +29,7 @@ Information about the sampling process, used during the experiment. In some expe
 __volume_per_sample__* `float`
 
 - Volume of the collected sample.
-- `Minimum`: 0.0
+- `Minimum`: 0
 
 __volume_per_sample_unit__* `string`
 
@@ -83,7 +88,7 @@ __quenching_method__* `string`
 
 __quenching_ratio__* `string`
 
-- Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. (
+- Information about the precise ratio or volume of the quenching solution in relation to the reaction mixture. ( if_applicable )
 
 
 __treatment_procedure__* `string`

@@ -1,8 +1,40 @@
+"""
+This file contains Pydantic model definitions for data validation.
+
+Pydantic is a data validation library that uses Python type annotations.
+It allows you to define data models with type hints that are validated
+at runtime while providing static type checking.
+
+Usage example:
+```python
+from my_model import MyModel
+
+# Validates data at runtime
+my_model = MyModel(name="John", age=30)
+
+# Type-safe - my_model has correct type hints
+print(my_model.name)
+
+# Will raise error if validation fails
+try:
+    MyModel(name="", age=30)
+except ValidationError as e:
+    print(e)
+```
+
+For more information see:
+https://docs.pydantic.dev/
+
+WARNING: This is an auto-generated file.
+Do not edit directly - any changes will be overwritten.
+"""
+
+
 ## This is a generated file. Do not modify it manually!
 
 from __future__ import annotations
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Optional, Generic, TypeVar
+from typing import Optional, Generic, TypeVar, Union
 from enum import Enum
 from uuid import uuid4
 from datetime import date, datetime
@@ -73,10 +105,13 @@ def validate_prefix(term: str | dict, prefix: str):
 
 class Batch(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    reactor_type: str
+    reactor_type: str = Field(
+        default=...,
+        description="""""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -122,9 +157,9 @@ class Batch(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -163,10 +198,13 @@ class Batch(BaseModel):
 
 class FedBatch(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    reactor_type: str
+    reactor_type: str = Field(
+        default=...,
+        description="""""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -213,9 +251,9 @@ class FedBatch(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -254,10 +292,13 @@ class FedBatch(BaseModel):
 
 class Continuous(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    reactor_type: str
+    reactor_type: str = Field(
+        default=...,
+        description="""""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -304,9 +345,9 @@ class Continuous(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -345,10 +386,13 @@ class Continuous(BaseModel):
 
 class CombinatorialMode(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    reactor_type: str
+    reactor_type: str = Field(
+        default=...,
+        description="""""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -395,9 +439,9 @@ class CombinatorialMode(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -432,3 +476,13 @@ class CombinatorialMode(BaseModel):
 
         add_namespace(self, prefix, iri)
         self.ld_type.append(term)
+
+
+# Rebuild all the classes within this file
+for cls in [
+    Batch,
+    FedBatch,
+    Continuous,
+    CombinatorialMode,
+]:
+    cls.model_rebuild()

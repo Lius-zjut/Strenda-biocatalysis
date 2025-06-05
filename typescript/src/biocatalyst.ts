@@ -28,8 +28,8 @@ export interface JsonLd {
 
     * @param name - The name of the biocatalyst can be either generic based on the
              catalyzed reaction, for example, 'lipase' or more
-             specifically by describing the genus and species, such
-             as '
+             specifically by describing the genus and species, such as
+             ' Bacillus amyloliquefaciens alpha-amylase'.
     * @param ec_number - Numerical classification system that categorizes enzymes based on
              their biochemical function and reaction mechanism, such
              as EC 3.1.4.12.
@@ -51,11 +51,12 @@ export interface JsonLd {
              three-letter amino acid codes, allowing researchers to
              access and analyze various protein sequences.
     * @param sequence_DNA - The DNA sequence of the biocatalyst including any tags and linkers.
-    * @param origin_organism - The specific species or source from which the enzyme is derived or
-             isolated. It includes information about the genus and
-             species of the organism. However, the cell type from
-             which the biocatalyst is derived could be bacterial, as
-             well as plant, animal, or other sources. (
+    * @param origin_organism - The specific species or source from which the enzyme is derived
+             or isolated. It includes information about the
+             genus and species of the organism. However, the cell
+             type from which the biocatalyst is derived could be
+             bacterial, as well as plant, animal, or other sources.
+             ( if_applicable )
     * @param supplier - Information about the supplier from which the enzyme was purchased.
              If possible, a reference for the purchased biocatalyst
              should also be provided.
@@ -121,8 +122,8 @@ export const BiocatalystPurchasedCodec = D.lazy("BiocatalystPurchased", () => D.
 
     * @param name - The name of the biocatalyst can be either generic based on the
              catalyzed reaction, for example, 'lipase' or more
-             specifically by describing the genus and species, such
-             as '
+             specifically by describing the genus and species, such as
+             ' Bacillus amyloliquefaciens alpha-amylase'.
     * @param ec_number - Numerical classification system that categorizes enzymes based on
              their biochemical function and reaction mechanism, such
              as EC 3.1.4.12.
@@ -147,10 +148,12 @@ export const BiocatalystPurchasedCodec = D.lazy("BiocatalystPurchased", () => D.
     * @param sequence_plasmid - The DNA sequence of the plasmid used to produce the biocatalyst. The
              sequence can be provided in plain text or as a database
              ID.
-    * @param plasmid_specifications - All DNA sequence changes (e.g. codon optimization for
+    * @param plasmid_specifications - All DNA sequence changes (e.g. codon optimization for E. coli ,
+             insertion of affinity tags, sequence truncation, etc.)
+             should be provided.
     * @param origin_organism - The specific species or source from which the enzyme is derived or
              isolated. It includes information about the genus and
-             species of the organism. (
+             species of the organism. ( if_applicable )
     * @param production_organism - Information about the organism in which the biocatalyst was
              produced is crucial in the context of heterologous gene
              expression. If the production strain was purchased, more
@@ -247,8 +250,10 @@ export const BiocatalystSelfProducedCodec = D.lazy("BiocatalystSelfProduced", ()
              lead to different activity values). In addition, the loss
              of activity of the biocatalyst over the storage period
              should be taken into account.
-    * @param activity_unit - The enzyme's activity can be expressed either as specific activity []
-             [][]
+    * @param activity_unit - The enzyme's activity can be expressed either as specific activity[]
+             U/mg (Units per milligram) or as volumetric activity[] U/
+             mL (Units per milliliter) or as kcat[] time-1 (catalytic
+             const. or turnover number).
     * @param activity_determination_method - Enzyme activity can be measured in various ways, including
              spectrophotometrically, colorimetrically,
              fluorometrically, assays and using biosensors, etc.
@@ -470,7 +475,7 @@ export const CellFreeProductionCodec = D.lazy("CellFreeProduction", () => D.stru
     * @param carrier_material - If a support material, base, or carrier was utilized, it is necessary
              to specify the material's name (e.g., gel, membrane,
              particle) along with the supplier and further product
-             details (
+             details ( if_applicable )
     * @param linkers - Linkers are chemical compounds used to establish a connection or
              bridge between the enzymes and the carrier material.
              These linkers play a vital role in stabilizing the
@@ -480,7 +485,7 @@ export const CellFreeProductionCodec = D.lazy("CellFreeProduction", () => D.stru
              material, promoting a stable and active biocatalyst
              structure. Common and widespread linkers are spacer
              molecules, crosslinkers, avidin-biotin or silane coupling
-             agents. (
+             agents. ( if_applicable )
     * @param immobilisation_method - Specify further details regarding the immobilisation method of the
              enzyme. For a comprehensive report around the technical
              key data of the immobilization process or method,
@@ -554,8 +559,9 @@ export const ImmobilisedCodec = D.lazy("Immobilised", () => D.struct({
     * @param drying_method - For biocatalysts, various drying methods are employed (e.g., freeze-
              drying, also known as lyophilization, spray-drying, a
              method that involves atomizing a solution into small
-             particles before drying, or vacuum drying, which removes
-             moisture through low-pressure conditions). (
+             particles before drying, or vacuum drying, which
+             removes moisture through low-pressure conditions).
+             ( if_applicable )
     * @param special_treatment - If there are any other specific characteristics or aspects related to
              the biocatalyst that are important for reproducibility
              and are not described by the aforementioned metadata,

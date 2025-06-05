@@ -1,8 +1,40 @@
+"""
+This file contains Pydantic model definitions for data validation.
+
+Pydantic is a data validation library that uses Python type annotations.
+It allows you to define data models with type hints that are validated
+at runtime while providing static type checking.
+
+Usage example:
+```python
+from my_model import MyModel
+
+# Validates data at runtime
+my_model = MyModel(name="John", age=30)
+
+# Type-safe - my_model has correct type hints
+print(my_model.name)
+
+# Will raise error if validation fails
+try:
+    MyModel(name="", age=30)
+except ValidationError as e:
+    print(e)
+```
+
+For more information see:
+https://docs.pydantic.dev/
+
+WARNING: This is an auto-generated file.
+Do not edit directly - any changes will be overwritten.
+"""
+
+
 ## This is a generated file. Do not modify it manually!
 
 from __future__ import annotations
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Optional, Generic, TypeVar
+from typing import Optional, Generic, TypeVar, Union
 from enum import Enum
 from uuid import uuid4
 from datetime import date, datetime
@@ -73,15 +105,43 @@ def validate_prefix(term: str | dict, prefix: str):
 
 class SamplingDescription(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    volume_per_sample: float
-    volume_per_sample_unit: str
-    mixing_during_sampling: str
-    vessel_opened_for_sampling: str
-    gas_phase: str
-    time: float
+    volume_per_sample: float = Field(
+        default=...,
+        description="""Volume of the collected sample.""",
+    )
+    volume_per_sample_unit: str = Field(
+        default=...,
+        description="""Common units include mL (milliliters), μl
+        (microliters), g (grams), or other volume
+        units, depending on whether the samples
+        are liquid or solid.""",
+    )
+    mixing_during_sampling: str = Field(
+        default=...,
+        description="""Provide information about whether the reaction was
+        mixed during sampling, as this can affect
+        the representativeness of the collected
+        sample.""",
+    )
+    vessel_opened_for_sampling: str = Field(
+        default=...,
+        description="""Information about whether the reaction vessel was
+        opened for sampling or not.""",
+    )
+    gas_phase: str = Field(
+        default=...,
+        description="""Information about the composition of the gas phase
+        above the reaction solution, including
+        gases such as nitrogen, carbon dioxide,
+        argon, oxygen or other gases.""",
+    )
+    time: float = Field(
+        default=...,
+        description="""The time at which the sample was taken.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -128,9 +188,9 @@ class SamplingDescription(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -169,12 +229,28 @@ class SamplingDescription(BaseModel):
 
 class SamplingFromHeterogeneousReactionSolutions(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    phase: str
-    biocatalyst_in_phase: str
-    special_treatment: str
+    phase: str = Field(
+        default=...,
+        description="""Information about which phase the sample was taken
+        from must be provided.""",
+    )
+    biocatalyst_in_phase: str = Field(
+        default=...,
+        description="""Information on whether the collected sample may be
+        contaminated with the (bio)catalyst.""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the sampling that are important
+        for reproducibility and are not described
+        by the aforementioned metadata, they
+        should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -222,9 +298,9 @@ class SamplingFromHeterogeneousReactionSolutions(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -263,13 +339,45 @@ class SamplingFromHeterogeneousReactionSolutions(BaseModel):
 
 class SamplePreprocessing(BaseModel):
     model_config: ConfigDict = ConfigDict(  # type: ignore
-        validate_assigment=True,
+        validate_assignment=True,
     )  # type: ignore
 
-    quenching_method: str
-    quenching_ratio: str
-    treatment_procedure: str
-    special_treatment: str
+    quenching_method: str = Field(
+        default=...,
+        description="""Techniques or methods used to halt the reaction,
+        including the chemicals or procedures
+        employed (e.g., heat treatment). Accurate
+        documentation of quenching methods
+        in enzymatic reactions is vital as
+        these methods can significantly impact
+        subsequent analytical procedures. For
+        instance, opting for an organic solvent
+        as a quenching reagent can notably enhance
+        the solubility of substrates or products,
+        directly influencing downstream analyses.""",
+    )
+    quenching_ratio: str = Field(
+        default=...,
+        description="""Information about the precise ratio or volume of
+        the quenching solution in relation to the
+        reaction mixture. ( if_applicable )""",
+    )
+    treatment_procedure: str = Field(
+        default=...,
+        description="""Any further details regarding the sample
+        processing steps that were carried out
+        after it was collected from the reaction
+        vessel (e.g., filtering samples).""",
+    )
+    special_treatment: str = Field(
+        default=...,
+        description="""If there are any other specific methods,
+        procedures, characteristics or aspects
+        related to the sampling that are important
+        for reproducibility and are not described
+        by the aforementioned metadata, they
+        should be explained here.""",
+    )
 
     # JSON-LD fields
     ld_id: str = Field(
@@ -316,9 +424,9 @@ class SamplePreprocessing(BaseModel):
             AssertionError: If the attribute is not found in the model
         """
 
-        assert (
-            attr in self.model_fields
-        ), f"Attribute {attr} not found in {self.__class__.__name__}"
+        assert attr in self.model_fields, (
+            f"Attribute {attr} not found in {self.__class__.__name__}"
+        )
 
         if prefix:
             validate_prefix(term, prefix)
@@ -353,3 +461,12 @@ class SamplePreprocessing(BaseModel):
 
         add_namespace(self, prefix, iri)
         self.ld_type.append(term)
+
+
+# Rebuild all the classes within this file
+for cls in [
+    SamplingDescription,
+    SamplingFromHeterogeneousReactionSolutions,
+    SamplePreprocessing,
+]:
+    cls.model_rebuild()
