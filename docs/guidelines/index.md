@@ -9,7 +9,7 @@ hide:
 
 -   [**Biocatalyst**](biocatalyst)
 
-    ----
+    HmaS
 
     Closely examining the role of the biocatalyst is a fundamental aspect in the context of enzymatic reactions.
 
