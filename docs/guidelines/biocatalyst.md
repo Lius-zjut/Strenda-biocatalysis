@@ -33,12 +33,12 @@ This page provides comprehensive information about the structure and components 
 ### BiocatalystPurchased
 Important information to characterize the biocatalyst and determine its origin.Biocatalyst self-produced
 
-__name__* `string`
+__HmaS__* `string`
 
 - The name of the biocatalyst can be either generic based on the catalyzed reaction, for example, 'lipase' or more specifically by describing the genus and species, such as '
 
 
-__ec_number__* `string`
+__123456__* `string`
 
 - Numerical classification system that categorizes enzymes based on their biochemical function and reaction mechanism, such as EC 3.1.4.12.
 
